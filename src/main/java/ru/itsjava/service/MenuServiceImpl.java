@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Scanner;
 
 @RequiredArgsConstructor
-public class MenuServiceImpl implements MenuService{
+public class MenuServiceImpl implements MenuService {
     private final ClientService clientService;
     private final Scanner scanner;
 
@@ -15,20 +15,38 @@ public class MenuServiceImpl implements MenuService{
             printMenu();
             System.out.println("Введите номер меню");
             int menuNum = scanner.nextInt();
-
-            if (menuNum == 1) {
-                System.out.println("Вы выбрали купить телефон");
-                clientService.buyPhone();
-            } else if (menuNum == 2) {
-                System.out.println("Вы выбрали отдать телефон");
-                clientService.putPhone();
-            } else if (menuNum == 3) {
-                System.out.println("Печатаем названия телефонов...");
-                clientService.printPhones();
-            } else {
-                System.out.println("До встречи");
-                break;
+            switch (menuNum) {
+                case 1:
+                    System.out.println("Вы выбрали купить телефон");
+                    clientService.buyPhone();
+                    break;
+                case 2:
+                    System.out.println("Вы выбрали отдать телефон");
+                    clientService.putPhone();
+                    break;
+                case 3:
+                    System.out.println("Печатаем названия телефонов...");
+                    clientService.printPhones();
+                    break;
+                case 4:
+                    System.out.println("До встречи");
+                    System.exit(0);
+                    break;
             }
+
+//            if (menuNum == 1) {
+//                System.out.println("Вы выбрали купить телефон");
+//                clientService.buyPhone();
+//            } else if (menuNum == 2) {
+//                System.out.println("Вы выбрали отдать телефон");
+//                clientService.putPhone();
+//            } else if (menuNum == 3) {
+//                System.out.println("Печатаем названия телефонов...");
+//                clientService.printPhones();
+//            } else {
+//                System.out.println("До встречи");
+//                break;
+//            }
         }
     }
 
