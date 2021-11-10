@@ -15,7 +15,7 @@ public class PhoneServiceImplTest {
 
     @Test
     @DisplayName("Проверка метода takePhoneByFirm")
-    void takePhoneByFirm() {
+    void shouldCorrectMethodTakePhoneByFirm() {
         Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE); // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
         phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone
         PhoneServiceImpl phoneService = new PhoneServiceImpl(phoneList); // создаем объект phoneService от класса PhoneServiceImpl с переменной phoneList
@@ -24,25 +24,27 @@ public class PhoneServiceImplTest {
 
     @Test
     @DisplayName("Проверка метода putPhone")
-    void putPhone() {
+    void shouldCorrectMethodPutPhone() {
         Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE); // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
         phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone
-        Assertions.assertEquals(actualPhone, phoneList.get(0)); // проверяем равенство двух обхектов: ожидание - actualPhone, фактический результат - получить позицию 0 коллекции phoneList
-    }
-
-    @Test
-    @DisplayName("Проверка метода hasPhone")
-    void hasPhone() {
-        Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE);  // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
-        phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone_1
         Assertions.assertTrue(phoneList.contains(actualPhone)); // проверяем что передаваемое выражение истинно, т.е в коллекции phoneList содержится объект actualPhone
     }
 
     @Test
-    @DisplayName("Проверка метода printPhones")
-    void printPhones() {
+    @DisplayName("Проверка метода hasPhone")
+    void shouldCorrectMethodHasPhone() {
         Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE);  // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
         phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone
-        Assertions.assertEquals(actualPhone, phoneList.get(0)); // проверяем равенство двух обхектов: ожидание - actualPhone, фактический результат - получить позицию 0 коллекции phoneList
+        PhoneServiceImpl phoneService = new PhoneServiceImpl(phoneList);
+        Assertions.assertTrue(phoneService.hasPhone(DEFAULT_NAME));
+    }
+
+    @Test
+    @DisplayName("Проверка метода printPhones")
+    void shouldCorrectMethodPrintPhones() {
+        Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE);  // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
+        phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone
+        PhoneServiceImpl phoneService = new PhoneServiceImpl(phoneList);
+        Assertions.assertNull(phoneService.printPhones());
     }
 }

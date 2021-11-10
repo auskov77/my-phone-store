@@ -41,9 +41,10 @@ public class PhoneServiceImpl implements PhoneService{
     }
 
     @Override
-    public void printPhones() {
+    public Object printPhones() {
         for (Phone phone: phonesFromStore){
             System.out.println(phone.getFirm() + " " + phone.getPrice());
         }
+        return null;
     }
 }

@@ -7,5 +7,5 @@ public interface PhoneService {
 
     void putPhone(Phone phone);
     boolean hasPhone(String firm);
-    void printPhones();
+    Object printPhones();
 }
