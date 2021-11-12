@@ -26,9 +26,9 @@ public class PhoneServiceImpl implements PhoneService{
     }
 
     @Override
-    public boolean putPhone(Phone phone) {
+    public void putPhone(Phone phone) {
         phonesFromStore.add(phone);
-        return true;
+//        return true;
     }
 
     @Override
@@ -42,10 +42,9 @@ public class PhoneServiceImpl implements PhoneService{
     }
 
     @Override
-    public Object printPhones() {
+    public void printPhones() {
         for (Phone phone: phonesFromStore){
             System.out.println(phone.getFirm() + " " + phone.getPrice());
         }
-        return null;
     }
 }
