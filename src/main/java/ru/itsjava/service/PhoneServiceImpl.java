@@ -26,8 +26,9 @@ public class PhoneServiceImpl implements PhoneService{
     }
 
     @Override
-    public void putPhone(Phone phone) {
+    public boolean putPhone(Phone phone) {
         phonesFromStore.add(phone);
+        return false;
     }
 
     @Override

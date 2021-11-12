@@ -27,7 +27,9 @@ public class PhoneServiceImplTest {
     void shouldCorrectMethodPutPhone() {
         Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE); // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
         phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone
-        Assertions.assertTrue(phoneList.contains(actualPhone)); // проверяем что передаваемое выражение истинно, т.е в коллекции phoneList содержится объект actualPhone
+//        Assertions.assertTrue(phoneList.contains(actualPhone)); // проверяем что передаваемое выражение истинно, т.е в коллекции phoneList содержится объект actualPhone
+        PhoneServiceImpl phoneService = new PhoneServiceImpl(phoneList);
+        Assertions.assertTrue(phoneService.putPhone(actualPhone));
     }
 
     @Test
@@ -39,12 +41,12 @@ public class PhoneServiceImplTest {
         Assertions.assertTrue(phoneService.hasPhone(DEFAULT_NAME));
     }
 
-    @Test
-    @DisplayName("Проверка метода printPhones")
-    void shouldCorrectMethodPrintPhones() {
-        Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE);  // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
-        phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone
-        PhoneServiceImpl phoneService = new PhoneServiceImpl(phoneList);
-        Assertions.assertNull(phoneService.printPhones());
-    }
+//    @Test
+//    @DisplayName("Проверка метода printPhones")
+//    void shouldCorrectMethodPrintPhones() {
+//        Phone actualPhone = new Phone(DEFAULT_NAME, DEFAULT_PRICE);  // создаем объект actualPhone с переменными (DEFAULT_NAME, DEFAULT_PRICE)
+//        phoneList.add(actualPhone); // в коллекцию phoneList добавили объект actualPhone
+//        PhoneServiceImpl phoneService = new PhoneServiceImpl(phoneList);
+//        Assertions.assertNull(phoneService.printPhones());
+//    }
 }

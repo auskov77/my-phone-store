@@ -5,7 +5,7 @@ import ru.itsjava.domain.Phone;
 public interface PhoneService {
     Phone takePhoneByFirm(String firm);
 
-    void putPhone(Phone phone);
+    boolean putPhone(Phone phone);
     boolean hasPhone(String firm);
     Object printPhones();
 }
